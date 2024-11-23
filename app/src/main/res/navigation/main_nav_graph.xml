@@ -1,0 +1,18 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/crytoFragment">
+
+    <fragment
+        android:id="@+id/crytoFragment"
+        android:name="com.example.crytoapplication.presentation.cryto.CrytoFragment"
+        android:label="CrytoFragment"
+        tools:layout="@layout/fragment_cryto" />
+    <fragment
+        android:id="@+id/crytodetailFragment"
+        android:name="com.example.crytoapplication.presentation.crytodetail.CrytoDetailFragment"
+        android:label="CrytoDetailFragment"
+        tools:layout="@layout/fragment_crytodetail" />
+
+</navigation>

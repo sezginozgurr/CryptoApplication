@@ -1,4 +1,4 @@
-package com.example.crytoapplication.ui
+package com.example.crytoapplication.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
