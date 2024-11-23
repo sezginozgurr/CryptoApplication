@@ -6,12 +6,12 @@
 
     <fragment
         android:id="@+id/crytoFragment"
-        android:name="com.example.crytoapplication.presentation.cryto.CrytoFragment"
+        android:name="com.example.cryptoapplication.presentation.cryto.CrytoFragment"
         android:label="CrytoFragment"
         tools:layout="@layout/fragment_cryto" />
     <fragment
         android:id="@+id/crytodetailFragment"
-        android:name="com.example.crytoapplication.presentation.crytodetail.CrytoDetailFragment"
+        android:name="com.example.cryptoapplication.presentation.crytodetail.CrytoDetailFragment"
         android:label="CrytoDetailFragment"
         tools:layout="@layout/fragment_crytodetail" />
 

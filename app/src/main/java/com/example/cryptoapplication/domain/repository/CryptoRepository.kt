@@ -1,0 +1,3 @@
+package com.example.cryptoapplication.domain.repository
+
+interface CryptoRepository

@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.crytoapplication"
+    namespace = "com.example.cryptoapplication"
     compileSdk = 34
 
     android.buildFeatures.buildConfig = true
 
     defaultConfig {
-        applicationId = "com.example.crytoapplication"
+        applicationId = "com.example.cryptoapplication"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
