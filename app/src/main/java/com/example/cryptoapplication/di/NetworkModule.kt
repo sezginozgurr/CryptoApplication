@@ -1,6 +1,6 @@
 package com.example.cryptoapplication.di
 
-import com.example.cryptoapplication.data.source.remote.MainService
+import com.example.cryptoapplication.data.source.remote.CryptoService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +21,7 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideMainService(retrofit: Retrofit): MainService {
-        return retrofit.create(MainService::class.java)
+    fun provideMainService(retrofit: Retrofit): CryptoService {
+        return retrofit.create(CryptoService::class.java)
     }
 }
