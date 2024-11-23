@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "CrytoApplication"
 include(":app")
- 
+include(":app:core")
