@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CryptoApplication"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.CryptoApplication">
             <intent-filter>

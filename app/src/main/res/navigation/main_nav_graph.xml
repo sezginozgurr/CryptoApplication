@@ -2,17 +2,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/crytoFragment">
+    app:startDestination="@id/cryptoFragment">
 
     <fragment
-        android:id="@+id/crytoFragment"
-        android:name="com.example.cryptoapplication.presentation.cryto.CrytoFragment"
-        android:label="CrytoFragment"
-        tools:layout="@layout/fragment_cryto" />
+        android:id="@+id/cryptoFragment"
+        android:name="com.example.cryto.presentation.CryptoFragment"
+        android:label="CryptoFragment"
+        tools:layout="@layout/fragment_crypto" >
+
+    </fragment>
+
     <fragment
-        android:id="@+id/crytodetailFragment"
-        android:name="com.example.cryptoapplication.presentation.crytodetail.CrytoDetailFragment"
-        android:label="CrytoDetailFragment"
-        tools:layout="@layout/fragment_crytodetail" />
+        android:id="@+id/cryptoDetailFragment"
+        android:name="com.example.crytodetail.CryptoDetailFragment"
+        android:label="CryptoDetailFragment"
+        tools:layout="@layout/fragment_crypto_detail" />
 
 </navigation>
