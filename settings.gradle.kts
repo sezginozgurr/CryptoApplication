@@ -21,5 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "CryptoApplication"
 include(":app")
-include(":app:core")
 include(":core")
+include(":features")
+include(":features:home")
+include(":features:detail")
+include(":core:network")

@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
-    alias(libs.plugins.detekt)
 }
 
 android {
@@ -42,6 +41,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -67,10 +67,6 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
 
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
     // Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
@@ -82,14 +78,10 @@ dependencies {
     // Glide
     implementation(libs.glide)
 
-    // Detekt
-    detektPlugins(libs.detekt)
+    implementation(project(":core"))
+    implementation(project(":core:network"))
+    implementation(project(":features:home"))
+    implementation(project(":features:detail"))
 }
 
-detekt {
-    config.setFrom(file("$rootDir/detekt/detektConfig.yml"))
-    source.from(files("src/main/kotlin"))
-    parallel = true
-    autoCorrect = true
-    buildUponDefaultConfig = true
-}
+
