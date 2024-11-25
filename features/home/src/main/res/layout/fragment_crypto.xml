@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/page_background">
 
     <TextView
         android:id="@+id/tvFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/text_color"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/text_color"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvFavorites"
@@ -42,13 +46,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCryptoList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/tvPairs"
         app:layout_constraintTop_toBottomOf="@id/tvPairs"
-        tools:listitem="@layout/item_favorites" />
+        tools:listitem="@layout/item_crypto" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

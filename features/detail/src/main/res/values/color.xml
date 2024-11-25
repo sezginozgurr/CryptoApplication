@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#FFFFFF</color>
+    <color name="textOrange">#4CAF50</color>
+    <color name="gray">#8F98A6</color>
+    <color name="black">#000000</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#D6301E</color>
+
+    <color name="page_background">#09101B</color>
+    <color name="rising_percent_color">#009C21</color>
+    <color name="drop_percent_color">#D6301E</color>
+    <color name="text_color">#F8F8F8</color>
+    <color name="bg_favorite">#8F98A6</color>
+    <color name="bg_chart">#1B232E</color>
+
+</resources>

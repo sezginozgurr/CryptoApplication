@@ -1,4 +1,4 @@
-package com.example.cryptoapplication.presentation.cryto
+package com.example.crytodetail
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class CrytoViewModel @Inject constructor() : ViewModel() {
+class CryptoDetailViewModel @Inject constructor() : ViewModel() {
 
-    private var _uiState = MutableStateFlow(CrytoUiState())
-    val uiState: StateFlow<CrytoUiState> = _uiState.asStateFlow()
+    private var _uiState = MutableStateFlow(CryptoDetailUiState())
+    val uiState: StateFlow<CryptoDetailUiState> = _uiState.asStateFlow()
 
 }
