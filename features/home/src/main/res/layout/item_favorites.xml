@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_marginStart="8dp"
+    android:backgroundTint="@color/bg_favorite"
     android:layout_height="wrap_content"
     app:cardCornerRadius="12dp">
 
@@ -16,18 +17,21 @@
         <TextView
             android:id="@+id/tvPairName"
             android:layout_width="wrap_content"
+            android:textColor="@color/text_color"
             android:layout_height="wrap_content"
             tools:text="Pair Name" />
 
         <TextView
             android:id="@+id/tvLast"
             android:layout_width="wrap_content"
+            android:textColor="@color/text_color"
             android:layout_height="wrap_content"
             tools:text="Last" />
 
         <TextView
-            android:id="@+id/tvDailyRecent"
+            android:id="@+id/tvDailyPercent"
             android:layout_width="wrap_content"
+            android:textColor="@color/green"
             android:layout_height="wrap_content"
             tools:text="Daily Recent" />
 
