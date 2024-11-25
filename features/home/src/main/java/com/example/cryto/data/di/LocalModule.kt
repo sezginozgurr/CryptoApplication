@@ -1,10 +1,10 @@
-package com.example.cryptoapplication.di
+package com.example.cryto.data.di
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.cryptoapplication.data.source.local.CryptoDao
-import com.example.cryptoapplication.data.source.local.CryptoRoomDB
+import com.example.cryto.data.local.FavoriteDao
+import com.example.cryto.data.local.FavoritesRoomDB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,14 +16,14 @@ import dagger.hilt.components.SingletonComponent
 object LocalModule {
 
     @Provides
-    fun provideRoomDatabase(@ApplicationContext context: Context): RoomDatabase {
+    fun provideRoomDatabase(@ApplicationContext context: Context): FavoritesRoomDB {
         return Room.databaseBuilder(
             context,
-            CryptoRoomDB::class.java,
-            CryptoRoomDB::class.simpleName
+            FavoritesRoomDB::class.java,
+            FavoritesRoomDB::class.simpleName
         ).build()
     }
 
     @Provides
-    fun provideMainDao(database: CryptoRoomDB): CryptoDao = database.mainDao()
+    fun provideMainDao(database: FavoritesRoomDB): FavoriteDao = database.favoritesDao()
 }
