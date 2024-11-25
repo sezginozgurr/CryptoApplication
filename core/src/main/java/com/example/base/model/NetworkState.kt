@@ -1,7 +1,5 @@
 package com.example.base.model
 
-import com.app.core.base.model.LoadingType
-
 sealed class NetworkState {
     data object Initial : NetworkState()
     data class Loading(

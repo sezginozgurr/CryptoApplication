@@ -51,3 +51,27 @@ data class CryptoResponseModel(
     @SerialName("order")
     val order: Int = -1,
 )
+
+
+data class CryptoResponse(
+    val data: List<CryptoData>
+)
+
+data class CryptoData(
+    val pair: String,
+    val pairNormalized: String,
+    val timestamp: Long,
+    val last: Double,
+    val high: Double,
+    val low: Double,
+    val bid: Double,
+    val ask: Double,
+    val open: Double,
+    val volume: Double,
+    val average: Double,
+    val daily: Double,
+    val dailyPercent: Double,
+    val denominatorSymbol: String,
+    val numeratorSymbol: String,
+    val order: Int
+)

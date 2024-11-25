@@ -22,10 +22,10 @@ abstract class BaseFragment<out VM : CoreViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        attachViewModels(viewModel)
+        attachViewModels()
     }
 
-    private fun attachViewModels(vararg viewModels: CoreViewModel) {
+    private fun attachViewModels() {
         launchRepeatWithViewLifecycle {
                 viewModel.networkStateFlow.collect { state ->
                     when (state) {

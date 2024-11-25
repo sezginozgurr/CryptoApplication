@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 inline fun <R> R?.orElse(block: () -> R): R {
     return this?:block()
 }
+
 const val ARGS_KEY = "__ARGS__"
 inline fun <reified T : Parcelable> Fragment.getArgs(): T? {
     return arguments?.getParcelable(ARGS_KEY)

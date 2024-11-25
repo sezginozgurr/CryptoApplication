@@ -8,7 +8,10 @@ import com.example.cryto.presentation.adapter.holder.CryptoHolder
 import com.example.cryto.presentation.adapter.itemdata.CryptoDataItem
 import com.example.home.databinding.ItemCryptoBinding
 
-class CryptoListAdapter(private val onContinue: () -> Unit) :
+class CryptoListAdapter(
+    private val onContinue: () -> Unit,
+    private val addFavorites: (pairName: String, last: String, dailyPercent: String) -> Unit,
+) :
     ListAdapter<CryptoDataItem, CryptoHolder>(
         SingleListAdapterDiffUtil()
     ) {
@@ -19,7 +22,8 @@ class CryptoListAdapter(private val onContinue: () -> Unit) :
                 parent,
                 false
             ),
-            onContinue
+            onContinue,
+            addFavorites
         )
 
     }

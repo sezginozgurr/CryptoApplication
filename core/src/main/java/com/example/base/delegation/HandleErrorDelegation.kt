@@ -2,7 +2,7 @@ package com.example.base.delegation
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.app.core.base.model.LoadingType
+import com.example.base.model.LoadingType
 import com.example.base.model.MessageType
 import com.example.base.model.NetworkState
 

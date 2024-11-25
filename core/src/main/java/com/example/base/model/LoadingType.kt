@@ -1,4 +1,4 @@
-package com.app.core.base.model
+package com.example.base.model
 
 enum class LoadingType {
     NONE,     //hide

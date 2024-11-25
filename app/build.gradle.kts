@@ -79,7 +79,7 @@ dependencies {
     implementation(libs.glide)
 
     implementation(project(":core"))
-    implementation(project(":network"))
+    implementation(project(":core:network"))
     implementation(project(":features:home"))
     implementation(project(":features:detail"))
 }

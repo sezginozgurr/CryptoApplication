@@ -12,11 +12,12 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetCryptoUseCase @Inject constructor(
-    private val repository: CryptoRepository
+    private val repository: CryptoRepository,
+    @IoDispatcher val dispatcher: CoroutineDispatcher
 ) {
 
-    suspend fun getCrypto(): Flow<ApiResult<List<String>>> = flow {
+    suspend fun getCrypto(): Flow<ApiResult<List<CryptoUiModel>>> = flow {
         val responseCrypto = repository.getCrypto()
         emit(responseCrypto)
-    }.buildDefaultFlow(Dispatchers.IO)
+    }.buildDefaultFlow(dispatcher)
 }

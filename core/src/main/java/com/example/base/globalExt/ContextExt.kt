@@ -22,9 +22,6 @@ fun Context.getActivity(): Activity? {
     }
 }
 
-fun Context.getDrawableCompat(@DrawableRes id: Int): Drawable? =
-    AppCompatResources.getDrawable(this, id)
-
 fun Context.showToast(message : String) = Toast.makeText(this,message,Toast.LENGTH_LONG).show()
 
 fun <T> Bundle.extGetParcelable(key : String,classes : Class<T>) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -32,16 +29,6 @@ fun <T> Bundle.extGetParcelable(key : String,classes : Class<T>) = if (Build.VER
     } else {
         this.getParcelable(key)
     }
-
-
-fun Context.openAppSettings(){
-    val intent = Intent()
-    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-    val uri = Uri.fromParts("package", this.packageName, null)
-    intent.data = uri
-    startActivity(intent)
-
-}
 
 val Context.layoutInflater get() =
     getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

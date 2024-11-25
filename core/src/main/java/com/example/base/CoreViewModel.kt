@@ -4,13 +4,11 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.base.model.ApiResult
-import com.app.core.base.model.LoadingType
+import com.example.base.model.LoadingType
 import com.example.base.model.MessageType
 import com.example.base.model.NetworkState
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -60,7 +58,7 @@ abstract class CoreViewModel : ViewModel() {
 
                     is ApiResult.Failure -> {
                         manageLoadingState(apiResult)
-                        ApiResult.Error(exception = Exception(apiResult.message)) //fixme servisten gelen expceiton'u handle et
+                        ApiResult.Error(exception = Exception(apiResult.message))
                         continuation.resume(apiResult)
                     }
 
@@ -70,46 +68,6 @@ abstract class CoreViewModel : ViewModel() {
                 }
 
             }
-        }
-    }
-
-    suspend fun <T : Any> flowApiCall(
-        loadingType: LoadingType = LoadingType.DEFAULT,
-        errorMessageType: MessageType = MessageType.NONE,
-        successMessageType: MessageType = MessageType.NONE,
-        retryCall: (() -> Unit)? = null,
-        call: suspend () -> Flow<ApiResult<T>>
-    ): ApiResult<T> = withContext(Dispatchers.IO) {
-        try {
-            val scope = this
-            suspendCoroutine<ApiResult<T>> { continuation ->
-                scope.launch {
-                    call.invoke().collect { result ->
-                        when (result) {
-                            is ApiResult.Loading -> {
-                                if (loadingType != LoadingType.NONE) {
-                                    stateFlow.emit(NetworkState.Loading(loadingType))
-                                }
-                            }
-
-                            is ApiResult.Success -> {
-                                stateFlow.emit(NetworkState.Loading(LoadingType.NONE))
-                                stateFlow.emit(NetworkState.Success(result, successMessageType))
-                                continuation.resume(result)
-                            }
-
-                            else -> {
-                                handleApiError(result, errorMessageType, retryCall)
-                                continuation.resume(result)
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (exception: Exception) {
-            val error = ApiResult.Error(exception)
-            handleApiError(error, errorMessageType, retryCall)
-            return@withContext error
         }
     }
 

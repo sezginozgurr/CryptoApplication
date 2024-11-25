@@ -39,6 +39,10 @@ fun View.gone() {
     visibility = View.GONE
 }
 
+fun String.percentage(): String {
+    return "%$this"
+}
+
 fun hideKeyboard(activity: Activity, view: View) {
     val inputMethodManager =
         activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager

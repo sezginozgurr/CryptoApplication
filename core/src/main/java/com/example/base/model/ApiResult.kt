@@ -43,7 +43,6 @@ sealed class ApiResult<out T>(
 enum class ErrorApiModelType {
     UNKNOWN,
     API,
-   //fixme maybe more REGISTER,
 }
 
 inline fun <T> ApiResult<T>.onSuccess(action: (T) -> Unit): ApiResult<T> {
@@ -92,29 +91,6 @@ inline fun <T, R> ApiResult<T>.mapOnSuccess(map: (T?) -> R) = when (this) {
     is ApiResult.Failure -> this
     is ApiResult.Error -> this
     is ApiResult.Loading -> this
-}
-
-fun <T> ApiResult<T>.setReceiveMethods(
-    onSuccess: OnSuccess<T?>,
-    onFailure: OnFailure,
-    onError: OnError,
-    onLoading: OnLoading
-) {
-    onSuccess { response ->
-        onSuccess.invoke(response)
-    }.onFailure { exception ->
-        onFailure.invoke(exception)
-    }.onError { exception ->
-        onError.invoke(exception)
-    }.onLoading {
-        onLoading.invoke()
-    }
-}
-
-fun <T> ApiResult<T>.setReceiver(
-    callback: (ApiResult<T>) -> Unit
-) {
-    callback.invoke(this)
 }
 
 interface OnSuccess<T> {

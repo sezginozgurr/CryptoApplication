@@ -5,5 +5,5 @@ import com.example.cryto.domain.model.CryptoUiModel
 
 interface CryptoRepository {
 
-    suspend fun getCrypto(): ApiResult<List<String>>
+    suspend fun getCrypto(): ApiResult<List<CryptoUiModel>>
 }

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt.plugin)
-    id("kotlin-kapt")
+    alias(libs.plugins.ksp)
     kotlin("plugin.serialization") version "1.8.0"
 }
 
@@ -34,17 +34,14 @@ android {
         jvmTarget = "1.8"
     }
 
-    kapt {
-        correctErrorTypes = true
-    }
-
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-
+    implementation(project(":core"))
+    implementation(project(":core:network"))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -52,13 +49,14 @@ dependencies {
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
 
-    implementation(project(":common"))
-    implementation(project(":core"))
-    implementation(project(":network"))
+    // Room
+    ksp(libs.room.compiler)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
 
     //Hilt
     implementation(libs.hilt.android)
-    kapt (libs.hilt.compiler)
+    ksp (libs.hilt.compiler)
 
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.fragment:fragment-ktx:1.8.5")

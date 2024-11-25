@@ -44,7 +44,8 @@
         android:id="@+id/tvLast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:maxLength="5"
+        android:layout_marginEnd="8dp"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tvDailyPercent"
@@ -53,6 +54,7 @@
         tools:text="Last" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDaily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/gray"

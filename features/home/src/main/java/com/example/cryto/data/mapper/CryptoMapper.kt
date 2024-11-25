@@ -1,15 +1,17 @@
 package com.example.cryto.data.mapper
 
-import com.example.cryto.data.model.CryptoResponseModel
+
+import com.example.cryto.data.model.CryptoResponse
 import com.example.cryto.domain.model.CryptoUiModel
+import com.example.home.R
 import javax.inject.Inject
 
 class CryptoMapper @Inject constructor() {
 
-    /* fun mapToCrypto(it: List<CryptoResponseModel>?) = it?.map {
+    fun mapToCrypto(it: CryptoResponse?) = it?.data?.map {
         CryptoUiModel(
             pair = it.pair,
-            pairNormalized = it.pairNormalized,
+            pairNormalized = it.pairNormalized.replace("_", "/"),
             timestamp = it.timestamp,
             last = it.last,
             high = it.high,
@@ -20,11 +22,12 @@ class CryptoMapper @Inject constructor() {
             volume = it.volume,
             average = it.average,
             daily = it.daily,
-            dailyPercent = it.dailyPercent,
+            dailyPercent = it.dailyPercent.toString().replace("-", ""),
             denominatorSymbol = it.denominatorSymbol,
             numeratorSymbol = it.numeratorSymbol,
-            order = it.order
+            order = it.order,
+            dailyPercentColor = if (it.dailyPercent < 0) R.color.red else R.color.green
         )
-    }.orEmpty() */
+    }.orEmpty()
 
 }

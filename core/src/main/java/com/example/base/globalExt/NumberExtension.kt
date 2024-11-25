@@ -1,17 +1,9 @@
 package com.example.base.globalExt
 
-import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
-import androidx.core.content.res.ResourcesCompat
 import java.math.BigDecimal
 import kotlin.math.roundToInt
-
-const val INVALID_INDEX = -1
-
-fun Int.asDimensionFloat(context: Context): Float {
-    return ResourcesCompat.getFloat(context.resources, this)
-}
 
 val Int?.orZero: Int
     get() = this ?: 0
