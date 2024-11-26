@@ -3,25 +3,9 @@ package com.example.extension
 import android.app.Activity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-
-fun <T> Flow<T>.collectIn(viewLifecycleOwner: LifecycleOwner, response: (T) -> Unit) {
-    viewLifecycleOwner.apply {
-        lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                collect {
-                    response(it)
-                }
-            }
-        }
-    }
-}
 
 fun <T> Flow<T>.collectIn(coroutineScope: CoroutineScope, function: (T) -> Unit) {
     coroutineScope.launch {
@@ -42,6 +26,49 @@ fun View.gone() {
 fun String.percentage(): String {
     return "%$this"
 }
+
+fun Double.formatLast(): String {
+    val numberString = this.toString()
+    val parts = numberString.split(".")
+    val integerPart = parts[0]
+
+    val relevantPart = if (integerPart.length > 3) {
+        integerPart.substring(0, 3)
+    } else {
+        integerPart
+    }
+
+    val decimalPart = if (parts.size > 1) {
+        "." + parts[1]
+    } else {
+        ""
+    }
+
+    val result = "$relevantPart$decimalPart".toDouble()
+
+    return String.format("%.2f", result).replace('.', ',')
+}
+
+fun Double.formatWithMaxTwoAndThreeDigits(): String {
+    val numberString = this.toString()
+    val parts = numberString.split(".")
+    val integerPart = parts[0]
+
+    val relevantPart = if (integerPart.length > 2) {
+        integerPart.substring(0, 2)
+    } else {
+        integerPart
+    }
+
+    val decimalPart = if (parts.size > 1) {
+        "." + parts[1].take(3)
+    } else {
+        ""
+    }
+
+    return relevantPart + decimalPart
+}
+
 
 fun hideKeyboard(activity: Activity, view: View) {
     val inputMethodManager =

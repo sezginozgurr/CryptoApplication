@@ -1,6 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+}
+
+val localProperties = Properties().apply {
+    val propsFile = rootProject.file("local.properties")
+    if (propsFile.exists()) {
+        load(propsFile.inputStream())
+    }
 }
 
 android {
@@ -12,6 +21,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildFeatures {
+            buildConfig = true
+        }
     }
 
     buildTypes {
@@ -21,6 +34,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", localProperties["BASE_URL"]?.toString().orEmpty())
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", localProperties["BASE_URL"]?.toString().orEmpty())
         }
     }
 

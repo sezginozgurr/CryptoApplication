@@ -5,6 +5,8 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.globalExt.with
 import com.example.cryto.presentation.listscreen.adapter.itemdata.CryptoDataItem
+import com.example.extension.formatLast
+import com.example.extension.formatWithMaxTwoAndThreeDigits
 import com.example.extension.percentage
 import com.example.home.R
 import com.example.home.databinding.ItemCryptoBinding
@@ -17,13 +19,13 @@ class CryptoHolder(
     fun bind(itemData: CryptoDataItem) {
         with(binding) {
             tvPairName.text = itemData.pairNormalized
-            tvLast.text = itemData.last.toString()
+            tvLast.text = itemData.last.formatLast()
 
             val formattedDailyPercent = itemData.dailyPercent
             tvDailyPercent.text = formattedDailyPercent.percentage()
             tvDailyPercent.setTextColor(itemView.context.getColor(itemData.dailyPercentColor))
 
-            tvDaily.text = itemData.volume with itemData.numeratorSymbol
+            tvDaily.text = itemData.volume.formatWithMaxTwoAndThreeDigits() with itemData.numeratorSymbol
 
             itemView.setOnClickListener {
                 adapterClick.onClickItem(
@@ -46,7 +48,7 @@ class CryptoHolder(
 
                 adapterClick.onClickStar(
                     pairName = itemData.pairNormalized,
-                    last = itemData.last.toString(),
+                    last = itemData.last.formatLast(),
                     dailyPercent = itemData.dailyPercent,
                     pureDailyPercent = itemData.pureDailyPercent,
                 )
