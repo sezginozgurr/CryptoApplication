@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -72,16 +73,20 @@ dependencies {
     implementation(libs.hilt.android)
 
     // Navigation
-    implementation(libs.navigation.fragment)
-    implementation(libs.navigation.ui)
+    api(libs.navigationFragment)
+    api(libs.navigationRunTime)
+    api(libs.navigationUi)
 
     // Glide
     implementation(libs.glide)
 
+    api(libs.navigationFragment)
+    api(libs.navigationRunTime)
+    api(libs.navigationUi)
+
     implementation(project(":core"))
     implementation(project(":core:network"))
     implementation(project(":features:home"))
-    implementation(project(":features:detail"))
 }
 
 

@@ -1,15 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt.plugin)
-    alias(libs.plugins.ksp)
-    id("kotlin-parcelize")
-    kotlin("plugin.serialization") version "1.8.0"
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.example.home"
+    namespace = "com.example.navigation"
     compileSdk = 34
 
     defaultConfig {
@@ -35,16 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":core:network"))
-    implementation(project(":core:navigation"))
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -52,23 +41,8 @@ dependencies {
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
 
-    // Room
-    ksp(libs.room.compiler)
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-
-    //Hilt
-    implementation(libs.hilt.android)
-    ksp (libs.hilt.compiler)
-
     api(libs.navigationFragment)
     api(libs.navigationRunTime)
     api(libs.navigationUi)
-
-    implementation(libs.mpandroidchart)
-
-    implementation(libs.kotlinx.serialization.json)
-
-
 
 }
