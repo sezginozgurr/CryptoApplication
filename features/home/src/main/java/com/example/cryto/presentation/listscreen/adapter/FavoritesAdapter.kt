@@ -1,11 +1,11 @@
-package com.example.cryto.presentation.adapter
+package com.example.cryto.presentation.listscreen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.base.SingleListAdapterDiffUtil
-import com.example.cryto.presentation.adapter.holder.FavoritesHolder
-import com.example.cryto.presentation.adapter.itemdata.FavoritesDataItem
+import com.example.cryto.presentation.listscreen.adapter.holder.FavoritesHolder
+import com.example.cryto.presentation.listscreen.adapter.itemdata.FavoritesDataItem
 import com.example.home.databinding.ItemFavoritesBinding
 
 class FavoritesAdapter(private val onContinue: () -> Unit) :

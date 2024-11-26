@@ -1,0 +1,24 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/cryptoFragment">
+
+
+    <fragment
+        android:id="@+id/cryptoFragment"
+        android:name="com.example.cryto.presentation.listscreen.CryptoFragment"
+        android:label="CryptoFragment" >
+        <action
+            android:id="@+id/action_cryptoFragment_to_cryptoDetailFragment"
+            app:destination="@id/cryptoDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cryptoDetailFragment"
+        android:name="com.example.cryto.presentation.detail.CryptoDetailFragment"
+        android:label="CryptoDetailFragment" >
+        <argument
+            android:name="detailArgs"
+            app:argType="com.example.cryto.presentation.detail.CryptoDetailArgument" />
+    </fragment>
+</navigation>

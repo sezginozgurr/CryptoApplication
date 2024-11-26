@@ -1,4 +1,4 @@
-package com.example.cryto.presentation
+package com.example.cryto.presentation.listscreen
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
@@ -8,8 +8,8 @@ import com.example.base.model.onSuccess
 import com.example.cryto.data.model.CryptoEntityModel
 import com.example.cryto.domain.usecase.CryptoDaoUseCase
 import com.example.cryto.domain.usecase.GetCryptoUseCase
-import com.example.cryto.presentation.adapter.itemdata.CryptoDataItem
-import com.example.cryto.presentation.adapter.itemdata.FavoritesDataItem
+import com.example.cryto.presentation.listscreen.adapter.itemdata.CryptoDataItem
+import com.example.cryto.presentation.listscreen.adapter.itemdata.FavoritesDataItem
 import com.example.extension.collectIn
 import com.example.home.R
 import dagger.hilt.android.lifecycle.HiltViewModel

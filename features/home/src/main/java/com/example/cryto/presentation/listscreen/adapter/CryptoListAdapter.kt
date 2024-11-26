@@ -1,12 +1,12 @@
-package com.example.cryto.presentation.adapter
+package com.example.cryto.presentation.listscreen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.base.SingleListAdapterDiffUtil
-import com.example.cryto.presentation.adapter.holder.AdapterClick
-import com.example.cryto.presentation.adapter.holder.CryptoHolder
-import com.example.cryto.presentation.adapter.itemdata.CryptoDataItem
+import com.example.cryto.presentation.listscreen.adapter.holder.AdapterClick
+import com.example.cryto.presentation.listscreen.adapter.holder.CryptoHolder
+import com.example.cryto.presentation.listscreen.adapter.itemdata.CryptoDataItem
 import com.example.home.databinding.ItemCryptoBinding
 
 class CryptoListAdapter(private val adapterClick: AdapterClick) :

@@ -1,4 +1,4 @@
-package com.example.crytodetail
+package com.example.cryto.presentation.detail
 
 data class CryptoDetailUiState(
     val isLoading: Boolean = false,

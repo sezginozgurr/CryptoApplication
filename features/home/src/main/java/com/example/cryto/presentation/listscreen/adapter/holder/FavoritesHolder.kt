@@ -1,7 +1,7 @@
-package com.example.cryto.presentation.adapter.holder
+package com.example.cryto.presentation.listscreen.adapter.holder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryto.presentation.adapter.itemdata.FavoritesDataItem
+import com.example.cryto.presentation.listscreen.adapter.itemdata.FavoritesDataItem
 import com.example.extension.percentage
 import com.example.home.databinding.ItemFavoritesBinding
 

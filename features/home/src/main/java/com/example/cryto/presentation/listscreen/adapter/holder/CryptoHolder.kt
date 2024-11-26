@@ -1,10 +1,10 @@
-package com.example.cryto.presentation.adapter.holder
+package com.example.cryto.presentation.listscreen.adapter.holder
 
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.globalExt.with
-import com.example.cryto.presentation.adapter.itemdata.CryptoDataItem
+import com.example.cryto.presentation.listscreen.adapter.itemdata.CryptoDataItem
 import com.example.extension.percentage
 import com.example.home.R
 import com.example.home.databinding.ItemCryptoBinding
@@ -25,7 +25,19 @@ class CryptoHolder(
 
             tvDaily.text = itemData.volume with itemData.numeratorSymbol
 
-            itemView.setOnClickListener { adapterClick.onClickItem() }
+            itemView.setOnClickListener {
+                adapterClick.onClickItem(
+                    pairName = itemData.pairNormalized,
+                    last = itemData.last,
+                    high = itemData.high,
+                    low = itemData.low,
+                    bid = itemData.bid,
+                    ask = itemData.bid,
+                    open = itemData.open,
+                    volume = itemData.volume,
+                    average = itemData.average
+                )
+            }
 
             updateStarIcon(itemData.isFavorite)
 

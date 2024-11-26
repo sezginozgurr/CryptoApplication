@@ -1,4 +1,4 @@
-package com.example.cryto.presentation.adapter.itemdata
+package com.example.cryto.presentation.listscreen.adapter.itemdata
 
 import com.example.base.SingleItemData
 
