@@ -6,7 +6,7 @@
     android:shareInterpolator="true">
 
     <translate
-        android:duration="@integer/config_navAnimTime"
+        android:duration="300"
         android:fromXDelta="100%"
         android:toXDelta="0%"/>
 

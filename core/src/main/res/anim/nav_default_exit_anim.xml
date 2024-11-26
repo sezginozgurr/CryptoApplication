@@ -6,12 +6,12 @@
     android:shareInterpolator="true">
 
     <translate
-        android:duration="@integer/config_navAnimTime"
+        android:duration="300"
         android:fromXDelta="0%"
         android:toXDelta="-20%"/>
 
     <alpha
-        android:duration="@integer/config_navAnimTime"
+        android:duration="300"
         android:fillAfter="false"
         android:fromAlpha="1.0"
         android:toAlpha="0.0" />

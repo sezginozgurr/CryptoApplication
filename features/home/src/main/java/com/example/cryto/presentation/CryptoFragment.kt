@@ -3,16 +3,17 @@ package com.example.cryto.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import com.example.base.BaseFragment
-import com.example.home.R
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.fragment.app.viewModels
+import com.example.base.BaseFragment
 import com.example.base.globalExt.launchRepeatWithViewLifecycle
 import com.example.base.globalExt.viewBinding
 import com.example.cryto.presentation.adapter.CryptoListAdapter
 import com.example.cryto.presentation.adapter.FavoritesAdapter
 import com.example.cryto.presentation.adapter.holder.AdapterClick
+import com.example.home.R
 import com.example.home.databinding.FragmentCryptoBinding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class CryptoFragment : BaseFragment<CryptoViewModel>(R.layout.fragment_crypto) {
@@ -34,8 +35,11 @@ class CryptoFragment : BaseFragment<CryptoViewModel>(R.layout.fragment_crypto) {
             }
 
             override fun onClickItem() {
-
-            }
+                    val dataToSend = "Hello from Feature A"
+                    //val action = FeatureAFragmentDirections.actionFeatureAFragmentToFeatureBFragment(dataToSend)
+                    //findNavController().navigate(action)
+                }
+                //findNavController().navigate(R.layout
 
         })
     }
@@ -61,7 +65,11 @@ class CryptoFragment : BaseFragment<CryptoViewModel>(R.layout.fragment_crypto) {
         viewModel.getCrypto()
         binding.apply {
             rvCryptoList.adapter = adapter
+            rvFavorites.itemAnimator = MyItemAnimator()
+
             rvFavorites.adapter = favoriteAdapter
+            rvCryptoList.itemAnimator = MyItemAnimator()
+
             tvPairs.text = getString(R.string.pairs)
             tvFavorites.text = getString(R.string.favorites)
         }
