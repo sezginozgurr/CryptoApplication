@@ -1,4 +1,4 @@
-package com.example.cryto.presentation
+package com.example.cryto.presentation.listscreen
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

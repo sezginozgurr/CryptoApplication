@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.viewbinding.ViewBinding
-import com.app.core.base.dialog.DialogInterface
 import com.app.core.base.globalExt.orFalse
 import com.example.base.globalExt.getActivity
 import com.example.core.R

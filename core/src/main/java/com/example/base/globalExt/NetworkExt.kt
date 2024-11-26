@@ -3,7 +3,7 @@ package com.example.base.globalExt
 
 import com.example.base.model.ApiResult
 import com.example.base.model.ErrorApiModelType
-import com.app.core.base.model.HttpStatus
+import com.example.base.model.HttpStatus
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 import retrofit2.HttpException

@@ -1,4 +1,4 @@
-package com.app.core.base.dialog
+package com.example.base.dialog
 
 interface DialogInterface {
     fun showDialog()

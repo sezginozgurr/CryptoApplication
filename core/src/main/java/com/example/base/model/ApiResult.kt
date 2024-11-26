@@ -1,7 +1,6 @@
 package com.example.base.model
 
 
-import com.app.core.base.model.HttpStatus
 import com.google.gson.annotations.SerializedName
 
 const val LOADING_STATUS = -1

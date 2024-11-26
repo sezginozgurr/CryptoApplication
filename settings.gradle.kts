@@ -14,8 +14,10 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url = uri("https://jitpack.io") }
         google()
         mavenCentral()
+
     }
 }
 
@@ -24,5 +26,5 @@ include(":app")
 include(":core")
 include(":features")
 include(":features:home")
-include(":features:detail")
 include(":core:network")
+include(":core:navigation")
